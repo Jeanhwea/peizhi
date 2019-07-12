@@ -1,9 +1,0 @@
-# spring boot
-spring:
-  application:
-    name: peizhi
-  profiles:
-    active: default
-  cloud:
-    config:
-      uri: http://localhost:8888

@@ -32,6 +32,6 @@ logging:
   pattern:
     console: "%clr(%d{yyyyMMdd.HHmmss.SSS}){cyan} %clr(%5p): %msg%n"
   level:
-    root: DEBUG
+    root: INFO
     app: TRACE
   file: log/peizhi.log
