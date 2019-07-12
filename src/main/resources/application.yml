@@ -1,0 +1,24 @@
+# spring boot
+spring:
+  main:
+    banner-mode: "console"
+  jackson:
+    time-zone: Asia/Shanghai
+  banner:
+    charset: UTF-8
+    location: classpath:banner.txt
+
+# logging
+logging:
+  group:
+    app: com.avic.mti.peizhi
+    spring: org.springframework
+  pattern:
+    console: "%clr(%d{yyyyMMdd.HHmmss.SSS}){cyan} %clr(%5p): %msg%n"
+  level:
+    root: INFO
+    app: TRACE
+    spring: ERROR
+    sql: WARN
+    web: DEBUG
+  file: log/peizhi.log
