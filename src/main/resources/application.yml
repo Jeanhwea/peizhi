@@ -1,5 +1,12 @@
+server:
+  port: 8888
+
 # spring boot
 spring:
+  application:
+    name: peizhi
+  profiles:
+    active: default
   main:
     banner-mode: "console"
   jackson:
@@ -9,9 +16,10 @@ spring:
     location: classpath:banner.txt
   cloud:
     config:
+      uri: http://localhost:8080
       server:
         git:
-          uri: http://192.168.0.202/avic/configfiles
+          uri: http://192.168.0.202/avic/configfiles.git
           searchPaths: services
           username: jiqiren
           password: pa$$word
@@ -24,9 +32,6 @@ logging:
   pattern:
     console: "%clr(%d{yyyyMMdd.HHmmss.SSS}){cyan} %clr(%5p): %msg%n"
   level:
-    root: INFO
+    root: DEBUG
     app: TRACE
-    spring: ERROR
-    sql: WARN
-    web: DEBUG
   file: log/peizhi.log
