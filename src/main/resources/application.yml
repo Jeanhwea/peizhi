@@ -7,6 +7,14 @@ spring:
   banner:
     charset: UTF-8
     location: classpath:banner.txt
+  cloud:
+    config:
+      server:
+        git:
+          uri: http://192.168.0.202/avic/configfiles
+          searchPaths: services
+          username: jiqiren
+          password: pa$$word
 
 # logging
 logging:
