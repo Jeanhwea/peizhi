@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Install startup script for container
 [ ! -d /app/log ] && mkdir -p /app/log &&
   mv /asserts/app.jar /app &&
