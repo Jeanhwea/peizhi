@@ -23,6 +23,8 @@ doc:
 	$(MAVEN_EXEC) $(MAVEN_FLAG) "javadoc:javadoc"
 
 build: package
+	[ -f target/${DOCKER_NAME}-*.jar ] && \
+	mv target/${DOCKER_NAME}-*.jar assets/app.jar && \
 	docker build -t $(DOCKER_REG)/$(DOCKER_NAME):$(DOCKER_TAG) .
 
 push: build
