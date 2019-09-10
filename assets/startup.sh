@@ -13,7 +13,7 @@ if [ "$PASSWORD" != "" ]; then
 fi
 
 if [ -f /app/app.jar ]; then
-  cd /app && java -jar $ARGS app.jar
+  cd /app && java -jar app.jar $ARGS
 else
   echo 'failed to starting app'
 fi
