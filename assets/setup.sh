@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Install startup script for container
 [ ! -d /app/log ] && mkdir -p /app/log &&

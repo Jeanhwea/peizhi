@@ -20,7 +20,10 @@ spring:
       server:
         git:
           uri: http://192.168.0.202/avic/configfiles.git
-          search-paths: services
+          searchPaths:
+            - common
+            - database
+            - services
           username: jiqiren
           password: pa$$word
 

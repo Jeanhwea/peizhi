@@ -1,6 +1,7 @@
-#!/usr/bin/env bash
-if [ "$REPOURI" != "" ]; then
-  ARGS="-Dspring.cloud.config.uri=$REPOURI"${ARGS:+" $ARGS"}
+#!/bin/bash
+
+if [ "$URI" != "" ]; then
+  ARGS="-Dspring.cloud.config.uri=$URI"${ARGS:+" $ARGS"}
 fi
 
 if [ "$USERNAME" != "" ]; then
