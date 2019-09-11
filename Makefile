@@ -31,4 +31,4 @@ push: build
 	docker push $(REGISTRY)/$(APPNAME):$(TAG)
 
 
-.PHONY: clean run package package2 doc deploy
+.PHONY: clean run package package2 doc copy build push
