@@ -23,6 +23,6 @@ docker run --restart always --detach \
        --name peizhi --hostname $(hostname) \
        -p 9000:8080 \
        -v /var/log/peizhi:/app/log \
-       -v /local/git/repo:/app/log \
+       -v /local/git/repo:/app/git \
        peizhi
 ```
