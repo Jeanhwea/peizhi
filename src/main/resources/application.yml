@@ -23,9 +23,8 @@ logging:
   group:
     app: com.avic.mti.peizhi
   pattern:
-    dateformat: yyyy-MM-dd HH:mm:ss.SSS
-    console: "%clr(%d){cyan} %clr(%5p): %msg%n"
-    file: "%d %5p: %msg%n"
+    console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){cyan} %clr(%5p): %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} %5p: %msg%n"
   level:
     root: INFO
     app: TRACE
