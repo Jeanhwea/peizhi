@@ -16,7 +16,6 @@ spring:
     location: classpath:banner.txt
   cloud:
     config:
-      uri: http://localhost:8080
       server:
         git:
           uri: http://192.168.0.202/avic/configfiles.git
@@ -35,6 +34,6 @@ logging:
   pattern:
     console: "%clr(%d{yyyyMMdd.HHmmss.SSS}){cyan} %clr(%5p): %msg%n"
   level:
-    root: INFO
+    root: TRACE
     app: TRACE
   file: log/peizhi.log
