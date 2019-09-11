@@ -5,15 +5,6 @@ server:
 spring:
   application:
     name: peizhi
-  profiles:
-    active: default
-  main:
-    banner-mode: "console"
-  jackson:
-    time-zone: Asia/Shanghai
-  banner:
-    charset: UTF-8
-    location: classpath:banner.txt
   cloud:
     config:
       server:
@@ -28,12 +19,13 @@ spring:
 
 # logging
 logging:
+  file: log/peizhi.log
   group:
     app: com.avic.mti.peizhi
-    spring: org.springframework
   pattern:
-    console: "%clr(%d{yyyyMMdd.HHmmss.SSS}){cyan} %clr(%5p): %msg%n"
+    dateformat: "yyyyMMdd.HHmmss.SSS"
+    console: "%clr(%d){cyan} %clr(%5p): %msg%n"
+    file: "%d %5p: %msg%n"
   level:
-    root: TRACE
+    root: INFO
     app: TRACE
-  file: log/peizhi.log
