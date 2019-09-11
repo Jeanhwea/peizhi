@@ -12,6 +12,10 @@ if [ "$USE_GIT_REPOSITORY" == true ]; then
   if [ "$PASSWORD" != "" ]; then
     ARGS="-Dspring.cloud.config.server.git.password=$PASSWORD"${ARGS:+" $ARGS"}
   fi
+
+  if [ "$SEARCH" != "" ]; then
+    ARGS="-Dspring.cloud.config.server.git.searchPaths=$SEARCH"${ARGS:+" $ARGS"}
+  fi
 else
   ARGS="-Dspring.cloud.config.server.git.uri=file:///app/git"${ARGS:+" $ARGS"}
 fi

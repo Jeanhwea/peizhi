@@ -12,6 +12,7 @@ docker run --restart always --detach \
        -e 'URI=http://github.com/username/gitrepo.git' \
        -e 'USERNAME=user' \
        -e 'PASSWORD=pass' \
+       -e 'SEARCH=common,database,services' \
        -v /var/log/peizhi:/app/log \
        peizhi
 ```
