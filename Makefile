@@ -1,34 +1,34 @@
-APP_NAME = peizhi
-JAVA_EXEC  = java
-MAVEN_EXEC = mvn
-MAVEN_FLAG = "-Dorg.slf4j.simpleLogger.defaultLogLevel=WARN"
-DOCKER_REG = 192.168.0.202:5000
-DOCKER_TAG = $(shell date +'%Y%m%d')
+APPNAME = peizhi
+MVN = mvn
+# FLAG = "-Dorg.slf4j.simpleLogger.defaultLogLevel=WARN"
+REGISTRY = 192.168.0.202:5000
+TAG = $(shell date +'%Y%m%d')
 
 all: clean run
 
 clean:
-	$(MAVEN_EXEC) $(MAVEN_FLAG) "clean"
+	$(MVN) $(FLAG) "clean"
 
 run:
-	$(MAVEN_EXEC) $(MAVEN_FLAG) "spring-boot:run"
+	$(MVN) $(FLAG) "spring-boot:run"
 
 package: clean
-	$(MAVEN_EXEC) $(MAVEN_FLAG) "package"
+	$(MVN) $(FLAG) "package"
 
 package2: clean
-	$(MAVEN_EXEC) $(MAVEN_FLAG) "-Dmaven.test.skip=true" "package"
+	$(MVN) $(FLAG) "-Dmaven.test.skip=true" "package"
 
 doc:
-	$(MAVEN_EXEC) $(MAVEN_FLAG) "javadoc:javadoc"
+	$(MVN) $(FLAG) "javadoc:javadoc"
 
-build: package
-	[ -f target/${APP_NAME}-*.jar ] && \
-	mv target/${APP_NAME}-*.jar assets/app.jar && \
-	docker build -t $(DOCKER_REG)/$(APP_NAME):$(DOCKER_TAG) .
+copy:
+	[ -f target/${APPNAME}-*.jar ] && cp target/${APPNAME}-*.jar assets/app.jar
+
+build: package copy
+	docker build -t $(REGISTRY)/$(APPNAME):$(TAG) .
 
 push: build
-	docker push $(DOCKER_REG)/$(APP_NAME):$(DOCKER_TAG)
+	docker push $(REGISTRY)/$(APPNAME):$(TAG)
 
 
 .PHONY: clean run package package2 doc deploy
