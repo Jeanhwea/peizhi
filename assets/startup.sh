@@ -1,4 +1,5 @@
 #!/bin/bash
+export TZ='Asia/Shanghai'
 
 if [ "$USE_GIT_REPOSITORY" == true ]; then
   if [ "$URI" != "" ]; then
