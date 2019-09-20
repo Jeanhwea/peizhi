@@ -1,8 +1,10 @@
 APPNAME = peizhi
-FLAG = "-Dorg.slf4j.simpleLogger.defaultLogLevel=WARN"
-REGISTRY = $(shell echo $REGISTRY)
+# REGISTRY = 192.168.0.202:5000
 TAG = $(shell git describe --tags)
+IMAGE = $(if $(REGISTRY), $(REGISTRY)/, '')$(APPNAME)$(if $(TAG),:$(TAG))
+
 MVN = mvn
+FLAG = "-Dorg.slf4j.simpleLogger.defaultLogLevel=WARN"
 
 all: clean run
 
@@ -25,10 +27,10 @@ copy:
 	[ -f target/${APPNAME}-*.jar ] && cp target/${APPNAME}-*.jar assets/app.jar
 
 build: package copy
-	docker build -t $(REGISTRY)/$(APPNAME):$(TAG) .
+	docker build -t $(IMAGE) .
 
 push: build
-	docker push $(REGISTRY)/$(APPNAME):$(TAG)
+	docker push $(IMAGE)
 
 
 .PHONY: clean run package package2 doc copy build push
