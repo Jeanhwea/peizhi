@@ -1,8 +1,8 @@
 APPNAME = peizhi
+FLAG = "-Dorg.slf4j.simpleLogger.defaultLogLevel=WARN"
+REGISTRY = $(REGISTRY)
+TAG = $(shell git describe --tags)
 MVN = mvn
-# FLAG = "-Dorg.slf4j.simpleLogger.defaultLogLevel=WARN"
-REGISTRY = 192.168.0.202:5000
-TAG = $(shell date +'%Y%m%d')
 
 all: clean run
 
