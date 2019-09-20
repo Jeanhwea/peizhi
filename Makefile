@@ -1,6 +1,6 @@
 APPNAME = peizhi
 FLAG = "-Dorg.slf4j.simpleLogger.defaultLogLevel=WARN"
-REGISTRY = $(REGISTRY)
+REGISTRY = $(shell echo $REGISTRY)
 TAG = $(shell git describe --tags)
 MVN = mvn
 
