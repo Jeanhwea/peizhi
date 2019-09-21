@@ -28,3 +28,5 @@ logging:
   level:
     root: INFO
     app: TRACE
+    org.springframework.web: DEBUG
+    org.hibernate: ERROR
