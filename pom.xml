@@ -10,7 +10,7 @@
   </parent>
   <groupId>com.avic.mti</groupId>
   <artifactId>peizhi</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
   <name>peizhi</name>
   <description>configuration server for all avic micro services</description>
 
@@ -41,13 +41,6 @@
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
-
-    <!-- <dependency> -->
-    <!--   <groupId>org.springframework.boot</groupId> -->
-    <!--   <artifactId>spring-boot-devtools</artifactId> -->
-    <!--   <optional>true</optional> -->
-    <!-- </dependency> -->
-
   </dependencies>
 
   <build>
