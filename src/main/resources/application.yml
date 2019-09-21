@@ -20,13 +20,11 @@ spring:
 # logging
 logging:
   file: log/peizhi.log
-  group:
-    app: com.avic.mti.peizhi
   pattern:
-    console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){cyan} %clr(%5p): %msg%n"
-    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} %5p: %msg%n"
+    console: "%clr(%d{yyyy-MM-dd}){cyan} %clr(%d{HH:mm:ss.SSS}){blue} %clr(%-5level) %clr(|){magenta} %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level --- [%thread] %logger{15} | %msg%n"
   level:
     root: INFO
-    app: TRACE
+    com.avic.mti.peizhi: TRACE
     org.springframework.web: DEBUG
     org.hibernate: ERROR
