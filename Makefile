@@ -1,8 +1,10 @@
 APPNAME = peizhi
 # REGISTRY = 192.168.0.202:5000
+VERSION = $(shell sed '/^  <version>/!d;s/.*>\([^<]*\)<.*/\1/' pom.xml)
 TAG = $(shell git describe --tags --dirty="-dev")
 IMAGE = $(if $(REGISTRY),$(REGISTRY)/)$(APPNAME)$(if $(TAG),:$(TAG))
 MVN = mvn
+JARFILE = target/$(APPNAME)-$(VERSION).jar
 
 FLAG = -Dorg.slf4j.simpleLogger.defaultLogLevel=WARN
 
@@ -10,8 +12,7 @@ all: clean run
 
 
 tag:
-	sed '/^  <version>/!d;s/.*>\([^<]*\)<.*/\1/' pom.xml | xargs -I {} git tag v{}
-
+	git tag v$(VERSION)
 
 run:
 	$(MVN) spring-boot:run
@@ -33,7 +34,7 @@ doc:
 
 
 copy:
-	[ -f target/$(APPNAME)-*.jar ] && cp target/$(APPNAME)-*.jar assets/app.jar
+	[ -f $(JARFILE) ] && cp $(JARFILE) assets/app.jar
 
 build: package copy
 	docker build -t $(IMAGE) .
