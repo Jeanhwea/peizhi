@@ -2,7 +2,7 @@ APPNAME = peizhi
 # REGISTRY = 192.168.0.202:5000
 VERSION = $(shell sed '/^  <version>/!d;s/.*>\([^<]*\)<.*/\1/' pom.xml)
 TAG = $(shell git describe --tags --always --dirty="-dev")
-IMAGE = $(if $(REGISTRY),$(REGISTRY)/)$(APPNAME)$(if $(TAG),:$(TAG))
+IMAGE = $(APPNAME)$(if $(TAG),:$(TAG))
 MVN = mvn
 JARFILE = target/$(APPNAME)-$(VERSION).jar
 
