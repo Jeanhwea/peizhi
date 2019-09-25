@@ -40,7 +40,8 @@ build: package copy
 	docker build -t $(IMAGE) .
 
 push: build
-	docker push $(IMAGE)
+	[ "$(REGISTRY)" != "" ] && docker tag $(IMAGE) $(REGISTRY)/$(IMAGE) && \
+	docker push $(REGISTRY)/$(IMAGE) && docker rmi $(REGISTRY)/$(IMAGE)
 
 
 # codetta: start
