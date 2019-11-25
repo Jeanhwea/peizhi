@@ -8,4 +8,4 @@ EXPOSE 8080
 VOLUME /app/log
 VOLUME /app/git
 
-CMD /usr/sbin/startup.sh
+ENTRYPOINT /usr/sbin/startup.sh
