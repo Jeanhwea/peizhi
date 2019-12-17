@@ -4,7 +4,7 @@ LABEL appname="peizhi" author="Jinghui Hu"
 COPY assets /app
 RUN chmod +x /app/setup.sh && /app/setup.sh
 
-EXPOSE 8080
+EXPOSE 9000
 VOLUME /app/log
 VOLUME /app/git
 
