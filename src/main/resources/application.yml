@@ -5,18 +5,15 @@ server:
 spring:
   application:
     name: peizhi
-    cloud:
-      config:
-        server:
-          git:
-            uri: http://192.168.0.202/avic/configfiles.git
-            searchPaths:
-              - common
-              - database
-              - services
-              - thirdpart
-            username: jiqiren
-            password: pa$$word
+  cloud:
+    config:
+      server:
+        git:
+          uri: file:///app/git
+          searchPaths:
+            - common
+            - database
+            - services
 
 # logging
 logging:
