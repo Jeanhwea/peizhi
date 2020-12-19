@@ -19,7 +19,7 @@ spring:
 logging:
   file: log/peizhi.log
   pattern:
-    console: "%clr(%d{yyyy-MM-dd}) %clr(%d{HH:mm:ss}){cyan}.%clr(%d{SSS}){blue} %clr(%.-1level) %clr(|){magenta} %-200.-200msg%n"
+    console: "%clr(%d{yyyy-MM-dd}) %clr(%d{HH:mm:ss}){cyan}.%clr(%d{SSS}){blue} %clr(%.-1level) %clr(|){magenta} %msg%n"
     file: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level --- [%thread] %logger | %msg%n"
   level:
     root: INFO
